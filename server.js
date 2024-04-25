@@ -234,12 +234,13 @@ app.get('/admissions', (req, res) => {
 });
 
 const server = app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+
+    console.log(`\nServer is running on port \n http://localhost:${port}`);
 });
 
 process.on('SIGINT', () => {
     mongoose.connection.close(() => {
-        console.log('MongoDB connection closed');
+        // console.log('MongoDB connection closed');
         server.close();
     });
 });
